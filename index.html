@@ -30,6 +30,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
   <link rel="stylesheet" href="css/common.css" />
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.170.0/three.min.js"
+    referrerpolicy="no-referrer"></script>
   <title>Hit Test</title>
 </head>
 
@@ -74,15 +76,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     scene.addNode(arObject);
 
     let flower = new Gltf2Node({
-      url: "media/gltf/solar_system/solar_system.glb",
+      url: "media/gltf/solar_system/solar systemFinal.glb",
     });
     flower.scale = [0.001, 0.001, 0.001];
-    let light = document.createElement("a-entity");
-    light.light = "color: #AFA; intensity: 1.5";
-    light.position = flower.matrix;
-
     arObject.addNode(flower);
-    arObject.appendChild(light);
+
 
     let reticle = new Gltf2Node({ url: "media/gltf/reticle/reticle.gltf" });
     reticle.visible = false;
@@ -181,11 +179,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       newFlower.visible = true;
       newFlower.matrix = matrix;
 
-      console.log(newFlower);
-
-
       scene.addNode(newFlower);
-      scene.addNode(light);
       flowers.push(newFlower);
 
       // For performance reasons if we add too many objects start
