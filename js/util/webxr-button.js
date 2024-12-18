@@ -479,7 +479,6 @@ export class WebXRButton {
    */
   __onXRButtonClick() {
     if (this.session) {
-      alert("Has session!");
       this.options.onEndSession(this.session);
     } else if (this._enabled) {
       let requestPromise = this.options.onRequestSession();
